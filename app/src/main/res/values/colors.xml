@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+
+    //background color
+    <color name="bg_color">#30ACDC</color>
+
+    // cardView background color
+    <color name="cardView_bg_color">#2C8BC3</color>
+</resources>
