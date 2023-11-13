@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/bg_color"
-    tools:context=".MainActivity">
+    tools:context=".ui.MainActivity">
 
 
     <ImageView
@@ -13,7 +13,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="40dp"
-        android:layout_marginTop="40dp"
+        android:layout_marginTop="20dp"
         android:src="@drawable/location_on"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
@@ -24,10 +24,10 @@
         android:layout_width="130dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="20dp"
-        android:spinnerMode="dropdown"
-        android:overlapAnchor="false"
         android:background="@drawable/spinner_background"
+        android:overlapAnchor="false"
         android:popupBackground="@android:color/transparent"
+        android:spinnerMode="dropdown"
         app:layout_constraintBottom_toBottomOf="@+id/location_ic"
         app:layout_constraintStart_toEndOf="@+id/location_ic"
         app:layout_constraintTop_toTopOf="@+id/location_ic" />
@@ -36,7 +36,7 @@
         android:id="@+id/weather_icon"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="100dp"
+        android:layout_marginTop="60dp"
         android:src="@drawable/ic_weather"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -46,13 +46,14 @@
         android:id="@+id/temperature"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textSize="70sp"
+        android:text="@string/current_degree"
         android:textColor="@color/white"
+        android:textSize="60sp"
         android:textStyle="bold"
-        app:layout_constraintTop_toBottomOf="@id/weather_icon"
-        app:layout_constraintStart_toStartOf="@id/weather_icon"
         app:layout_constraintEnd_toEndOf="@id/weather_icon"
-        tools:text="6.7˚"/>
+        app:layout_constraintStart_toStartOf="@id/weather_icon"
+        app:layout_constraintTop_toBottomOf="@id/weather_icon"
+        tools:text="6.7˚" />
 
     <TextView
         android:id="@+id/date"
@@ -60,34 +61,36 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
         android:layout_marginEnd="20dp"
-        android:textSize="18sp"
+        android:text="@string/current_date"
         android:textColor="@color/white"
-        app:layout_constraintTop_toBottomOf="@id/temperature"
-        app:layout_constraintStart_toStartOf="@id/temperature"
+        android:textSize="18sp"
         app:layout_constraintEnd_toEndOf="@id/temperature"
-        tools:text="2023-11-12"/>
+        app:layout_constraintStart_toStartOf="@id/temperature"
+        app:layout_constraintTop_toBottomOf="@id/temperature"
+        tools:text="2023-11-12" />
 
     <TextView
         android:id="@+id/time"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textSize="18sp"
+        android:text="@string/current_time"
         android:textColor="@color/white"
-        app:layout_constraintTop_toBottomOf="@id/date"
-        app:layout_constraintStart_toStartOf="@id/date"
+        android:textSize="18sp"
         app:layout_constraintEnd_toEndOf="@id/date"
-        tools:text="오후 16:40"/>
+        app:layout_constraintStart_toStartOf="@id/date"
+        app:layout_constraintTop_toBottomOf="@id/date"
+        tools:text="오후 16:40" />
 
     <ImageButton
         android:id="@+id/refresh_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="15dp"
-        android:src="@drawable/refresh"
         android:background="@android:color/transparent"
+        android:src="@drawable/refresh"
+        app:layout_constraintBottom_toBottomOf="@id/time"
         app:layout_constraintStart_toEndOf="@id/date"
-        app:layout_constraintTop_toTopOf="@id/date"
-        app:layout_constraintBottom_toBottomOf="@id/time"/>
+        app:layout_constraintTop_toTopOf="@id/date" />
 
     <TextView
         android:id="@+id/max"
@@ -96,8 +99,8 @@
         android:layout_marginTop="10dp"
         android:layout_marginEnd="8dp"
         android:textColor="@color/white"
+        android:text="@string/max"
         android:textSize="18sp"
-        android:textStyle="bold"
         app:layout_constraintEnd_toStartOf="@+id/min"
         app:layout_constraintStart_toStartOf="@id/time"
         app:layout_constraintTop_toBottomOf="@id/time"
@@ -109,9 +112,9 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
         android:layout_marginEnd="30dp"
+        android:text="@string/min"
         android:textColor="@color/white"
         android:textSize="18sp"
-        android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="@id/max"
         app:layout_constraintEnd_toEndOf="@+id/refresh_button"
         app:layout_constraintStart_toEndOf="@id/max"
@@ -125,13 +128,13 @@
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="50dp"
         android:layout_marginTop="5dp"
-        app:cardElevation="0dp"
-        app:strokeWidth="0dp"
-        app:cardCornerRadius="50dp"
         android:backgroundTint="@color/cardView_bg_color"
+        app:cardCornerRadius="50dp"
+        app:cardElevation="0dp"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/max"
-        app:layout_constraintEnd_toEndOf="parent">
+        app:strokeWidth="0dp">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
@@ -144,20 +147,21 @@
                 android:layout_marginVertical="10dp"
                 android:layout_marginStart="20dp"
                 android:src="@drawable/ic_rain"
-                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintBottom_toBottomOf="parent"/>
+                app:layout_constraintTop_toTopOf="parent" />
 
             <TextView
                 android:id="@+id/precipitation"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="5dp"
-                android:textSize="15sp"
+                android:text="@string/rain"
                 android:textColor="@color/white"
-                app:layout_constraintTop_toTopOf="@id/rain_ic"
+                android:textSize="15sp"
                 app:layout_constraintBottom_toBottomOf="@id/rain_ic"
                 app:layout_constraintStart_toEndOf="@id/rain_ic"
+                app:layout_constraintTop_toTopOf="@id/rain_ic"
                 tools:text="0%" />
 
             <ImageView
@@ -166,20 +170,21 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="30dp"
                 android:src="@drawable/ic_humidity"
-                app:layout_constraintTop_toTopOf="@id/rain_ic"
                 app:layout_constraintBottom_toBottomOf="@id/rain_ic"
-                app:layout_constraintStart_toEndOf="@id/precipitation"/>
+                app:layout_constraintStart_toEndOf="@id/precipitation"
+                app:layout_constraintTop_toTopOf="@id/rain_ic" />
 
             <TextView
                 android:id="@+id/humid_probability"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textSize="15sp"
+                android:text="@string/humidity"
                 android:textColor="@color/white"
-                app:layout_constraintTop_toTopOf="@id/humid_ic"
+                android:textSize="15sp"
                 app:layout_constraintBottom_toBottomOf="@id/humid_ic"
                 app:layout_constraintStart_toEndOf="@id/humid_ic"
-                tools:text="32%"/>
+                app:layout_constraintTop_toTopOf="@id/humid_ic"
+                tools:text="32%" />
 
             <ImageView
                 android:id="@+id/wind_ic"
@@ -187,21 +192,22 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="30dp"
                 android:src="@drawable/ic_wind_speed"
-                app:layout_constraintTop_toTopOf="@id/humid_ic"
                 app:layout_constraintBottom_toBottomOf="@id/humid_ic"
-                app:layout_constraintStart_toEndOf="@id/humid_probability"/>
+                app:layout_constraintStart_toEndOf="@id/humid_probability"
+                app:layout_constraintTop_toTopOf="@id/humid_ic" />
 
             <TextView
                 android:id="@+id/wind_speed"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="5dp"
-                android:textSize="15sp"
+                android:text="@string/wind_speed"
                 android:textColor="@color/white"
-                app:layout_constraintTop_toTopOf="@id/humid_ic"
+                android:textSize="15sp"
                 app:layout_constraintBottom_toBottomOf="@id/humid_ic"
                 app:layout_constraintStart_toEndOf="@id/wind_ic"
-                tools:text="6.69km/h"/>
+                app:layout_constraintTop_toTopOf="@id/humid_ic"
+                tools:text="6.69km/h" />
 
 
         </androidx.constraintlayout.widget.ConstraintLayout>
@@ -212,11 +218,12 @@
         android:id="@+id/forecast_cardView"
         android:layout_width="match_parent"
         android:layout_height="0dp"
+        android:layout_marginHorizontal="10dp"
         android:layout_marginTop="20dp"
         android:layout_marginBottom="20dp"
-        android:layout_marginHorizontal="10dp"
         android:backgroundTint="@color/cardView_bg_color"
         app:cardCornerRadius="20dp"
+        app:strokeWidth="0dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -232,8 +239,10 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="15dp"
                 android:layout_marginTop="10dp"
+                android:text="@string/forecast"
                 android:textColor="@color/white"
                 android:textSize="20sp"
+                android:textStyle="bold"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
                 tools:text="Forecast" />
@@ -243,13 +252,16 @@
     </com.google.android.material.card.MaterialCardView>
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/recyclerview_forecast"
+        android:id="@+id/forecast_recyclerview"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="100dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="90dp"
+        android:layout_marginBottom="50dp"
         android:orientation="horizontal"
-        app:layout_constraintTop_toTopOf="@id/forecast_cardView"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"/>
+        app:layout_constraintTop_toTopOf="@id/forecast_cardView" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

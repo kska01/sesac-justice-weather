@@ -1,6 +1,16 @@
 <resources>
     <string name="app_name">weather</string>
+    <string name="max">Max: 8.8℃</string>
+    <string name="min">Min: 5.8℃</string>
+    <string name="forecast">Forecast</string>
+    <string name="current_degree">6.7℃</string>
+    <string name="current_date">2023–11–13</string>
+    <string name="current_time">오후 16:40</string>
+    <string name="rain">0%</string>
+    <string name="humidity">32%</string>
+    <string name="wind_speed">6.69km/h</string>
 
+    <!-- Location List -->
     <string-array name="location_list">
         <item>서울</item>
         <item>인천</item>

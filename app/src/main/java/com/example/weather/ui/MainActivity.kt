@@ -1,14 +1,19 @@
-package com.example.weather
+package com.example.weather.ui
 
 import android.os.Bundle
 import android.widget.ArrayAdapter
 import androidx.appcompat.app.AppCompatActivity
+import androidx.recyclerview.widget.RecyclerView
+import com.example.weather.R
+import com.example.weather.adpater.ForecastRecyclerviewAdapter
 import com.example.weather.databinding.ActivityMainBinding
-import java.text.DateFormatSymbols
+import com.example.weather.datasource.ForecastData
 
 class MainActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityMainBinding
+    private lateinit var recyclerview: RecyclerView
+    private lateinit var adapter: ForecastRecyclerviewAdapter
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -26,23 +31,12 @@ class MainActivity : AppCompatActivity() {
             spinner.adapter = adapter
         }
 
-        val month = DateFormatSymbols().months
-
-
+        val data = ForecastData().loadForecastList()
+        binding.apply {
+            recyclerview = forecastRecyclerview
+            adapter = ForecastRecyclerviewAdapter()
+            adapter.submitList(data)
+            recyclerview.adapter = adapter
+        }
     }
-
-    val list = arrayOf(
-        "서울",
-        "인천",
-        "춘천",
-        "강릉",
-        "대전",
-        "대구",
-        "전주",
-        "목포",
-        "광주",
-        "부산",
-        "울산",
-        "제주"
-    ).sort()
 }
